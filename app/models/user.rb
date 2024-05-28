@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :resevations
 
   validates :email, presence: true, uniqueness: true
-  # validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
 end
