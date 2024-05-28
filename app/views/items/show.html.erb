@@ -1,10 +1,13 @@
-<h1>Details of the selected item : </h1>
-name : <%= @item.name %> <br>
-category : <%= @item.category %> <br>
-picture : <%= @item.picture %> <br>
-price : <%= @item.price %> <br>
-description : <%= @item.description %> <br>
-adress : <%= @item.address %> <br>
-availability :
-<br>
-<%= link_to "Book this item", "#", class: "btn btn-ghost" %>
+<div class="container">
+
+<div class="item-details">
+  <h2> <%= @item.name %></h2>
+  <p><strong>Category:</strong> <%= @item.category %></p>
+  <p><strong>Price:</strong> <%= number_to_currency(@item.price) %></p>
+  <p><strong>Description:</strong> <%= @item.description %></p>
+  <p><strong>Address:</strong> <%= @item.address %></p>
+  <p><strong>Availability:</strong></p>
+</div>
+<%= link_to "Book this item", "#", class: "btn btn-ghost book-button" %>
+
+</div>
