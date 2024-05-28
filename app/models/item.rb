@@ -3,6 +3,6 @@ class Item < ApplicationRecord
   has_many :reservations
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 6 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end
