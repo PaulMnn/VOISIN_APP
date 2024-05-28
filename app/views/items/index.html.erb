@@ -1,0 +1,18 @@
+<h1> Location de matériel entre voisins </h1>
+
+
+<div class="card-item">
+      <% @items.each do |item| %>
+      <div class="card-item-infos">
+      <h2><%= item.name %></h2>
+      <h3><%= item.category %></h3>
+      <p><%= item.description %></p>
+      <p><%= item.address %></p>
+    </div>
+    <h2 class="card-item-price"><%= item.price %>€</h2>
+  </div>
+</div>
+
+
+
+<% end %>
