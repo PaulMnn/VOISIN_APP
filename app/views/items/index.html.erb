@@ -1,18 +1,21 @@
-<h1> Location de matériel entre voisins </h1>
-
-
-<div class="card-item">
+<div class="container">
+  <h1 class="my-4"> Location de matériel entre voisins </h1>
+    <div class="row">
       <% @items.each do |item| %>
-      <div class="card-item-infos">
-      <h2><%= item.name %></h2>
-      <h3><%= item.category %></h3>
-      <p><%= item.description %></p>
-      <p><%= item.address %></p>
-    </div>
-    <h2 class="card-item-price"><%= item.price %>€</h2>
-  </div>
-</div>
-
-
-
-<% end %>
+        <div class="col-md-3 mb-4">
+          <div class="card border-light h-100">
+            <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= item.name %></h5>
+                <h6 class="card-item-cat text-muted"><%= item.category %></h6>
+                <p class="card-text"><%= item.description %></p>
+                <p class="card-text text-muted"><%= item.address %></p>
+              </div>
+              <div class="card-footer">
+                <h5 class="card-item-price"><%= item.price %>€</h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  <div>
