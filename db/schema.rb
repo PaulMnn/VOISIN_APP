@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_28_101718) do
     t.string "category"
     t.string "name"
     t.string "picture"
-    t.decimal "price"
+    t.integer "price"
     t.text "description"
     t.string "address"
     t.bigint "user_id", null: false
