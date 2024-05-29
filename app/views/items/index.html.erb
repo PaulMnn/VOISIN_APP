@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="my-4 text-center"> Location de matériel entre voisins </h1>
+    <div class="row">
+      <% @items.each do |item| %>
+        <div class="col-md-3 mb-4">
+          <div class="items-card card shadow bg-white text-dark">
+            <% if item.picture.key.nil? %>
+              <%= image_tag "logo.jpg", class: 'card-img-top' %>
+            <% else %>
+              <%= cl_image_tag item.picture.key, alt: "Items" %>
+            <% end %>
+            <div class="card-body">
+              <% if item.user == current_user %>
+                <h5 class="card-title">My <%= item.name %></h5>
+              <% else %>
+                <h5 class="card-title"><%= item.name %> for rent</h5>
+              <% end %>
+              <h6 class="card-item-cat text-muted"><%= item.category %></h6>
+              <p class="card-text"><%= item.description %></p>
+              <p class="card-text text-muted"><%= item.address %></p>
+            </div>
+
+            <div class="card-footer">
+              <%= link_to "details", item_path(item), class: 'btn btn-light' %>
+              <p class="card-text"><strong><%= item.price %>€</strong> / jour · <%= item.address %></p>
+            </div>
+           </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+<div>

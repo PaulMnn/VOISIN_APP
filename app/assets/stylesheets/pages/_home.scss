@@ -1,1 +1,51 @@
-// Specific CSS for your home-page
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.discover {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-caption h5 {
+  font-size: 1.5em;
+  color: white; /* Couleur du texte */
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p {
+  font-size: 1em;
+  color: white; /* Couleur du texte */
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-danger {
+  padding: 12px 24px; /* Ajuster le rembourrage pour agrandir le bouton */
+  font-size: 18px; /* Ajuster la taille de la police pour agrandir le bouton */
+  background-color: red; /* Couleur de fond du bouton principal */
+  color: white; /* Couleur du texte */
+  border: none; /* Supprimer la bordure du bouton */
+  border-radius: 5px; /* Ajouter des coins arrondis */
+  cursor: pointer; /* Curseur de souris pointer */
+}
+
+.discover {
+  display: flex;
+  text-align: center; /* Centrer le bouton */
+  margin-bottom: 20px; /* Espacement au-dessous du bouton */
+}
