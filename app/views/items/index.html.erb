@@ -1,8 +1,9 @@
 <div class="container">
   <h1 class="my-4 text-center"> Location de matériel entre voisins </h1>
-    <div class="row">
+  <%= link_to "add an item", new_item_path, class: 'btn btn-primary' %>
+    <div class="d-flex row justify-content-between">
       <% @items.each do |item| %>
-        <div class="col-md-3 mb-4">
+        <div class="col-4 mb-4">
           <div class="items-card card shadow bg-white text-dark">
             <% if item.picture.key.nil? %>
               <%= image_tag "logo.jpg", class: 'card-img-top' %>
