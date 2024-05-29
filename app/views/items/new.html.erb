@@ -1,11 +1,15 @@
-<h1>Add an Item for location </h1>
-<%= simple_form_for(@item) do |f| %>
-  <%= f.input :category%>
-  <%= f.input :name %>
-  <%= f.input :picture, as: :file %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
- <%= link_to "back", items_path %>
+<div class="container">
+  <h1 class="my-4 text-center">Add an Item for location </h1>
+  <div class="d-flex row justify-content-center mx-5">
+    <%= simple_form_for(@item) do |f| %>
+      <div class="mb-3 col-4"><%= f.input :category%></div>
+      <div class="mb-3 col-4"><%= f.input :name %></div>
+      <div class="mb-3 col-4"><%= f.input :picture, as: :file %></div>
+      <div class="mb-3 col-4"><%= f.input :price %></div>
+      <div class="mb-3 col-4"><%= f.input :address %></div>
+      <div class="mb-3 col-4"> <%= f.input :description %></div>
+      <%= f.button :submit, "Validate", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "back", items_path, class: "btn btn-secondary"%>
+  </div>
+</div>
