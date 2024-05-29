@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many :reservations
+  has_one_attached :picture
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 6 }
