@@ -1,27 +1,46 @@
+<div>
+    <h1 class="text-center mt-5">Confirm your reservation</h1>
+</div>
 
-<%= form_with(model: [@item, @reservation], local: true) do |form| %>
-  <% if @reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-      <ul>
-        <% @reservation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class= "row justify-content-center mt-5">
+  <div class="reservation-card card shadow col-4">
+    <div class="card-body-reservation">
+      <div class="price-per-day text-center">
+        <strong>$7</strong> / day
+      </div>
+      <div class="dates d-flex justify-content-between mb-3">
+        <div class="date">
+          <label for="start-date">Start</label>
+          <input type="date" id="start-date" name="start-date" value="2022-02-19">
+        </div>
+        <div class="date">
+          <label for="end-date">End</label>
+          <input type="date" id="end-date" name="end-date" value="2022-02-26">
+        </div>
+      </div>
+      <button class="btn btn-danger w-100 mb-3">Reserve</button>
+      <div class="info-text text-center mb-3">
+        You won't be charged yet
+      </div>
+      <div class="price-details">
+        <div class="price-item d-flex justify-content-between">
+          <span>$7 × 7 days</span>
+          <span>$49</span>
+        </div>
+        <div class="price-item d-flex justify-content-between">
+          <span>Weekly discount</span>
+          <span class="discount text-success">-$8</span>
+        </div>
+        <div class="price-item d-flex justify-content-between">
+          <span>Service fee</span>
+          <span>$8</span>
+        </div>
+        <hr>
+        <div class="price-item d-flex justify-content-between total font-weight-bold">
+          <span>Total</span>
+          <span>$49</span>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
   </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
