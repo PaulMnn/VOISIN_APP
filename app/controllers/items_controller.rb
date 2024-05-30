@@ -6,8 +6,10 @@ class ItemsController < ApplicationController
   def index
     if params[:query].present?
       @items = Item.search_by_name_and_category(params[:query])
+      render 'search_results'
     else
       @items = Item.all
+      render 'index'
     end
   end
 
