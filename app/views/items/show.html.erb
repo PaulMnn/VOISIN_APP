@@ -4,13 +4,26 @@
   <h2> <%= @item.name %></h2>
   <p class="adress"><%= @item.address %></p>
 
-  <%# cartes photos de l'item %>
-  <div class="cards">
-    <% 3.times do |i| %>
-      <div class="card-category" style="background-image: url(<%= @item.picture.present? ? @item.picture : 'path/to/placeholder-image.jpg' %>);">
-      </div>
-    <% end %>
+<%# cartes photos de l'item %>
+<div class="cards">
+<%# image 1 from form %>
+    <div class="card-category">
+      <% if @item.picture.attached? %>
+        <%= image_tag url_for(@item.picture), class: 'card-img-top' %>
+      <% else %>
+        <%= image_tag "logo.jpg", class: 'card-img-top' %>
+      <% end %>
+    </div>
+<%# image 2 from unsplash %>
+<div class="card-category">
+<% translated_item = DeepL.translate "#{@item.name}", 'FR', 'EN' %>
+    <%= image_tag "https://source.unsplash.com/random/?#{translated_item}", class: 'card-img-top' %>
   </div>
+<%# image 3 from unsplash %>
+<div class="card-category">
+    <%= image_tag "https://source.unsplash.com/random/?#{translated_item}s", class: 'card-img-top' %>
+  </div>
+</div>
 
   <%# description/category à gauche - price/bouton à droite %>
   <div class="description-price">
