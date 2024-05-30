@@ -20,7 +20,7 @@
     </div>
     <div class="right-side">
       <p class="price"><%= number_to_currency(@item.price, unit: "€", format: "%n %u / jour") %></p>
-      <%= link_to "Réserver", item_reservations_path(@item), class: "btn btn-reserve book-button" %>
+      <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve book-button" %>
     </div>
   </div>
 
