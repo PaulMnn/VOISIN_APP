@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "items", class: "navbar-brand" do %>
+    <%= link_to items_path, class: "navbar-brand" do %>
       <%= image_tag "logo.jpg" %>
     <% end %>
 
@@ -8,18 +8,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-      <form class="d-flex mx-auto" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex mx-auto" role="search" action="<%= items_path %>">
+        <input class="form-control me-2 rounded-5" type="search" name="query" placeholder="votre recherche" aria-label="Search">
+        <button class="btn btn-primary rounded-5" type="submit">valider</button>
       </form>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "home", home_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-        <%= link_to "new item", new_item_path, class: "nav-link" %>
+        <%= link_to "Ajouter un produit", new_item_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%# <%= link_to "My reservation", reservations_path, class: "nav-link" %>

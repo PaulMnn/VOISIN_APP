@@ -4,7 +4,11 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    if params[:query].present?
+      @items = Item.search_by_name_and_category(params[:query])
+    else
+      @items = Item.all
+    end
   end
 
   def new
@@ -19,6 +23,21 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path(@item)
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to lists_path, status: :see_other
   end
 
   private

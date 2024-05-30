@@ -23,5 +23,7 @@
       <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve book-button" %>
     </div>
   </div>
-
 </div>
+<%= link_to "Retour", "/items" %>
+<%= link_to "edit", edit_item_path %>
+<%= link_to "Delete", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sur(e)s"} %>
