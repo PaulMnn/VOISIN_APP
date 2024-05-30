@@ -1,32 +1,39 @@
 <div class="container">
-  <h1 class="my-4 text-center"> Location de matériel entre voisins </h1>
-    <div class="d-flex row justify-content-between">
-      <% @items.each do |item| %>
-        <div class="col-4 mb-4">
-          <div class="items-card card shadow bg-white text-dark">
+  <h1 class="text-center">Location de matériel entre voisins</h1>
+  <%# <div class="my-4 d-flex justify-content-center">
+    <%= link_to "Ajouter un produit", new_item_path, class: 'btn btn-primary px-5' %>
+  </div>
+  <div class="row justify-content-between mx-5">
+    <% @items.each do |item| %>
+      <div class="col-md-3 mb-3">
+        <div class="items-card card shadow bg-white text-dark h-100">
+          <div class="image-container">
             <% if item.picture.key.nil? %>
               <%= image_tag "logo.jpg", class: 'card-img-top' %>
             <% else %>
-              <%= cl_image_tag item.picture.key, alt: "Items" %>
+              <%= cl_image_tag item.picture.key, alt: "Items", class: 'card-img-top' %>
             <% end %>
-            <div class="card-body">
-              <% if item.user == current_user %>
-                <h5 class="card-title"> <strong>Votre</strong> <%= item.name %></h5>
-              <% else %>
-                <h5 class="card-title"><%= item.name %> <strong>À louer</strong></h5>
-              <% end %>
-              <h6 class="card-item-cat text-muted"><%= item.category %></h6>
-              <p class="card-text"><%= item.description %></p>
+          </div>
+          <div class="card-body mt-2">
+            <% if item.user == current_user %>
+              <h5 class="card-title"><strong>Votre</strong> <%= item.name %></h5>
+            <% else %>
+              <h5 class="card-title"><%= item.name %> <strong>À louer</strong></h5>
+            <% end %>
+            <h6 class="card-item-cat text-muted"><%= item.category %></h6>
+            <%# <p class="card-text"><%= item.description </p> %>
+          </div>
+          <div class="card-footer">
+            <div class= "mb-3">
+            <%= link_to "détails", item_path(item), class: 'btn btn-info' %>
             </div>
-
-            <div class="card-footer">
-              <%= link_to "details", item_path(item), class: 'btn btn-info' %>
-              <p class="card-text"><strong><%= item.price %>€ / jour.</strong></p>
+            <p class="card-text"><strong><%= item.price %> € / jour</strong></p>
+            <div class="blockquote-footer">
               <p><%= item.address %></p>
             </div>
-           </div>
           </div>
-        <% end %>
+        </div>
       </div>
-    </div>
-<div>
+    <% end %>
+  </div>
+</div>
