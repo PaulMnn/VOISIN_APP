@@ -2,7 +2,7 @@
 <div class="col-4">
   <h1 class="my-4 text-center">Ajouter votre produit </h1>
     <%= simple_form_for(@item) do |f| %>
-      <div class="mb-3" ><%= f.input :category, collection: ["bricolage", "electroménager", "jardinage"], label: "Catégorie" %></div>
+      <div class="mb-3" ><%= f.input :category, collection: ["Jardinage", "Outils", "mobilier", "sports & loisirs", "cuisine", "électro-ménager", "accessoires"], label: "Catégorie" %></div>
       <div class="mb-3"><%= f.input :name, label: "Nom du produit" %></div>
       <div class="mb-3"><%= f.input :picture, as: :file, label: "Télécharger une image" %></div>
       <div class="mb-3"><%= f.input :price, label: "prix" %></div>

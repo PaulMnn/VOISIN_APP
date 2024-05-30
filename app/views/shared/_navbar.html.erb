@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
     <%= link_to items_path, class: "navbar-brand" do %>
       <%= image_tag "logo.jpg" %>
@@ -15,18 +15,20 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-        <%= link_to "Ajouter un produit", new_item_path, class: "nav-link" %>
+        <li class="nav-item active searchbar">
+        <%= link_to "Ajouter un produit", new_item_path, class: "nav-link mx-5" %>
         </li>
         <li class="nav-item">
           <%# <%= link_to "My reservation", reservations_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "logo.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            <% if current_user == nil %>
+              <%= link_to "Connexion", new_user_session_path, class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "Déconnexion",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            <% end %>
           </div>
         </li>
       </ul>
