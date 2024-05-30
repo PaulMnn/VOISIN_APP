@@ -49,3 +49,13 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.items-card-search {
+  width: 70%;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
