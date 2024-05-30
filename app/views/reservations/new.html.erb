@@ -1,46 +1,99 @@
-<div>
-    <h1 class="text-center mt-5">Confirm your reservation</h1>
-</div>
+<div class="container mt-0">
+  <div class="row">
+    <!-- Colonne de gauche vide -->
+    <div class="col-md-2"></div>
 
-<div class= "row justify-content-center mt-5">
-  <div class="reservation-card card shadow col-4">
-    <div class="card-body-reservation">
-      <div class="price-per-day text-center">
-        <strong>$7</strong> / day
-      </div>
-      <div class="dates d-flex justify-content-between mb-3">
-        <div class="date">
-          <label for="start-date">Start</label>
-          <input type="date" id="start-date" name="start-date" value="2022-02-19">
-        </div>
-        <div class="date">
-          <label for="end-date">End</label>
-          <input type="date" id="end-date" name="end-date" value="2022-02-26">
+    <!-- Colonne centrale avec tout le contenu -->
+    <div class="col-md-8 mt-0 bt-0">
+      <h2 class="text-center mt-0">Vous souhaitez réserver cet article :</h2>
+
+      <!-- Utilisation de la carte Bootstrap pour @item.name -->
+      <div class="card shadow-sm pb-0">
+        <div class="card-body text-center py-1">
+          <h3 class="card-title"><%= @item.name %></h3>
+          <p class="mb-0 text-secondary"><%= number_to_currency(@item.price, unit: "€", format: "%n %u / jour") %></p>
         </div>
       </div>
-      <button class="btn btn-danger w-100 mb-3">Reserve</button>
-      <div class="info-text text-center mb-3">
-        You won't be charged yet
-      </div>
-      <div class="price-details">
-        <div class="price-item d-flex justify-content-between">
-          <span>$7 × 7 days</span>
-          <span>$49</span>
-        </div>
-        <div class="price-item d-flex justify-content-between">
-          <span>Weekly discount</span>
-          <span class="discount text-success">-$8</span>
-        </div>
-        <div class="price-item d-flex justify-content-between">
-          <span>Service fee</span>
-          <span>$8</span>
-        </div>
-        <hr>
-        <div class="price-item d-flex justify-content-between total font-weight-bold">
-          <span>Total</span>
-          <span>$49</span>
+
+      <p class="text-center mt-2 mb-2">Merci de compléter les détails de votre réservation ici ⬇️</p>
+
+      <!-- Nouvelle div pour encapsuler le formulaire -->
+      <div class="form-container">
+        <div class="row justify-content-center mt-3">
+          <div class="reservation-card card shadow col-12">
+            <div class="card-body">
+              <div class="dates d-flex justify-content-between mb-3">
+                <div class="date">
+                  <label for="start-date">Début</label>
+                  <input type="date" id="start-date" name="start-date" value="<%= Date.today %>">
+                </div>
+                <div class="date">
+                  <label for="end-date">Fin</label>
+                  <input type="date" id="end-date" name="end-date" value="<%= Date.today + 7 %>">
+                </div>
+              </div>
+              <button class="btn btn-danger w-100 mb-3">Confirmer</button>
+              <div class="info-text text-center mb-3">
+                Vous ne serez pas directement prélevé(e)
+              </div>
+              <div class="price-details">
+                <div class="price-item d-flex justify-content-between">
+                  <span><span id="price-per-day"><%= @item.price %></span> × <span id="days-count">7</span> jours</span>
+                  <span id="total-price"><%= @item.price * 7 %></span>
+                </div>
+                <div class="price-item d-flex justify-content-between">
+                  <span>Frais de service</span>
+                  <span><%= 10 %></span>
+                </div>
+                <hr>
+                <div class="price-item d-flex justify-content-between total font-weight-bold">
+                  <span>Total</span>
+                  <span id="final-price"><%= @item.price * 7 + 10 %></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Colonne de droite vide -->
+    <div class="col-md-2"></div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const pricePerDayElement = document.getElementById('price-per-day');
+    const daysCountElement = document.getElementById('days-count');
+    const totalPriceElement = document.getElementById('total-price');
+    const finalPriceElement = document.getElementById('final-price');
+
+    const pricePerDay = parseFloat(pricePerDayElement.textContent);
+
+    function calculatePrice() {
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
+      const timeDifference = endDate - startDate;
+      const daysCount = timeDifference / (1000 * 3600 * 24) + 1; // Including end date
+
+      if (daysCount > 0) {
+        const totalPrice = pricePerDay * daysCount;
+        const finalPrice = totalPrice + 10;
+
+        daysCountElement.textContent = daysCount;
+        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        finalPriceElement.textContent = `$${finalPrice.toFixed(2)}`;
+      }
+    }
+
+
+    startDateInput.addEventListener('change', calculatePrice);
+    endDateInput.addEventListener('change', calculatePrice);
+
+    // Initialize the price calculation
+    calculatePrice();
+  });
+</script>
