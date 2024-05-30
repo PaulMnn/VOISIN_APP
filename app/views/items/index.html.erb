@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="my-4 text-center"> Location de matériel entre voisins </h1>
-  <%= link_to "add an item", new_item_path, class: 'btn btn-primary' %>
+  <%= link_to "Rajouter un outil", new_item_path, class: 'btn btn-primary' %>
     <div class="d-flex row justify-content-between">
       <% @items.each do |item| %>
         <div class="col-4 mb-4">
@@ -12,18 +12,18 @@
             <% end %>
             <div class="card-body">
               <% if item.user == current_user %>
-                <h5 class="card-title">My <%= item.name %></h5>
+                <h5 class="card-title"> <strong>Votre</strong> <%= item.name %></h5>
               <% else %>
-                <h5 class="card-title"><%= item.name %> for rent</h5>
+                <h5 class="card-title"><%= item.name %> <strong>À louer</strong></h5>
               <% end %>
               <h6 class="card-item-cat text-muted"><%= item.category %></h6>
               <p class="card-text"><%= item.description %></p>
-              <p class="card-text text-muted"><%= item.address %></p>
             </div>
 
             <div class="card-footer">
-              <%= link_to "details", item_path(item), class: 'btn btn-light' %>
-              <p class="card-text"><strong><%= item.price %>€</strong> / jour · <%= item.address %></p>
+              <%= link_to "details", item_path(item), class: 'btn btn-info' %>
+              <p class="card-text"><strong><%= item.price %>€ / jour.</strong></p>
+              <p><%= item.address %></p>
             </div>
            </div>
           </div>
