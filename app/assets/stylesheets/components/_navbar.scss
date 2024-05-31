@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #c8d5d6;
   height: 100px;
   border-bottom: 1px solid lightgray;
 }
@@ -20,4 +20,32 @@
 .navbar-lewagon .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.home-img {
+  width: 200px;
+}
+
+.back-arrow {
+width: 100px;
+}
+
+.search-container {
+  position: relative;
+
+}
+
+.search-bar {
+  padding-right: 40px;
+}
+
+.search-bar-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
 }

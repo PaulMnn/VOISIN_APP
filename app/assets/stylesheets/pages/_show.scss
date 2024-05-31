@@ -29,21 +29,6 @@ color: grey;
 font-size: 12px;
 }
 
-.book-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #de3151;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.book-button:hover {
-  background-color: #c0392b;
-}
 
 .description-price {
   display: flex;
@@ -84,4 +69,40 @@ font-size: 12px;
   background-position: center;
   height: 200px;
   border: 1px solid #ddd;
+}
+
+.valid-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007782;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: #007782;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.valid-button:hover {
+  background-color: white;
+  color:#007782;
+  border: 1px solid #007782;
+}
+
+.back-button:hover {
+  background-color: lightgray;
+  color: white;
+  border: 1px solid white;
 }
