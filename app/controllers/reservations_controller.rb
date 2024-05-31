@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.item = @item
+    @reservation.user = current_user
     if @reservation.save
       redirect_to @reservation, notice: 'Réservation confirmée.'
     else
