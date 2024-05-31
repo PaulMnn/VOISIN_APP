@@ -32,6 +32,7 @@
               <%= link_to "Connexion", new_user_session_path, class: "dropdown-item" %>
             <% else %>
               <p class="username-login text-center"><%= current_user.username %></p>
+              <%= link_to "mes réservations", myreservations_items_path %>
               <%= link_to "Déconnexion",  destroy_user_session_path, class: "dropdown-item text-center", data: {turbo_method: :delete} %>
             <% end %>
           </div>

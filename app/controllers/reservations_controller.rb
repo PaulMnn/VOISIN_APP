@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_item, only: [:create, :new]
+  before_action :set_item, only: %i[create new]
 
   def new
     @reservation = Reservation.new
@@ -9,16 +9,20 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.item = @item
     @reservation.user = current_user
-    if @reservation.save
-      redirect_to @reservation, notice: 'Réservation confirmée.'
+    if @reservation.save!
+      redirect_to item_reservation_path(@item, @reservation), notice: 'Réservation confirmée.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def my_reservations
+    @reservations = current_user.reservations.includes(:item)
   end
 
   def index
     @items = Item.all
-    @reservations = Reservation.where(status: true)
+    @reservations = Reservation.includes(:user, :item).all
   end
 
   def show

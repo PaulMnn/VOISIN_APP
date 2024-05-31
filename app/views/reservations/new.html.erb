@@ -5,7 +5,7 @@
     <div class="col-md-2"></div>
     <!-- Colonne centrale avec tout le contenu -->
     <div class="col-md-8 mt-0 bt-0">
-      <h2 class="text-center mt-0">Vous souhaitez réserver cet article :</h2>
+      <h2 class="text-center mt-0">Vous souhaitez réserver:</h2>
       <!-- Utilisation de la carte Bootstrap pour @item.name -->
       <div class="card shadow-sm pb-0">
         <div class="card-body text-center py-1">
@@ -21,9 +21,9 @@
             <div class="card-body">
               <div class="dates d-flex justify-content-between mb-3" data-controller="update-price">
                 <%= simple_form_for [@item, @reservation] do |form| %>
-                    <%= form.input :start_date, as: :string, input_html: { id: 'start-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'startDate' } } %>
+                    <%= form.input :start_date, label:"Date de début", as: :string, input_html: { id: 'start-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'startDate' } } %>
 
-                    <%= form.input :end_date, as: :string, input_html: { id: 'end-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'endDate' } } %>
+                    <%= form.input :end_date, as: :string, label:"Date de fin", input_html: { id: 'end-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'endDate' } } %>
 
                     <div class="form-group" >
                       <p data-flatpickr-target="days">Nombre de jours total de location: 0</p>

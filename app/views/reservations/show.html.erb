@@ -1,32 +1,28 @@
-<h1>Confirm your reservation</h1>
+<h1>Voici le récapitulatif de votre réservation</h1>
 
-<div class="reservation-summary">
+<div>
   <div>
-    <strong>Start:</strong>
+    <strong>Date de début:</strong>
     <%= @reservation.start_date.strftime("%d/%m/%Y") %>
   </div>
   <div>
-    <strong>End:</strong>
+    <strong>Date de fin:</strong>
     <%= @reservation.end_date.strftime("%d/%m/%Y") %>
   </div>
   <div>
-    <strong>Price per day:</strong>
-    $<%= @reservation.price_per_day %>
+    <strong>Prix journalier:</strong>
+    <%= @reservation.item.price %> €
   </div>
   <div>
-    <strong>Total days:</strong>
-    <%= (@reservation.end_date - @reservation.start_date).to_i %> days
+    <strong>Durée total:</strong>
+    <%= (@reservation.end_date - @reservation.start_date).to_i %> Jours
   </div>
   <div>
-    <strong>Total cost:</strong>
-    $<%= @reservation.total_price %>
-  </div>
-  <div>
-    <strong>Total:</strong>
-    $<%= @reservation.final_total %>
+    <strong>Votre total:</strong>
+    <%= @reservation.total_price %> €
   </div>
 
-  
+
 <style>
   .reservation-summary {
     border: 1px solid #ccc;

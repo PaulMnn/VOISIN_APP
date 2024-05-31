@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :reservations, only: [:new, :create, :index, :show]
+    collection do
+      get 'myreservations', to: 'reservations#my_reservations'
+    end
   end
-
 end
