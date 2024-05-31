@@ -1,35 +1,17 @@
-<div>
-    <h1 class="text-center mt-5">My reservations</h1>
-</div>
 
 <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="items-card card shadow bg-white text-dark mb-4">
-          <%= image_tag "logo.jpg", class: 'card-img-top' %>
+  <h1 class="text-center mb-5">Mes réservations en cours</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <% @reservations.each do |reservation| %>
+        <div class="reservation-card card shadow bg-white text-dark mb-3">
           <div class="card-body">
-            <h5 class="card-title"><%= 'Perceuse' %></h5>
-            <p class="card-text"><strong><%= "9.99" %></strong> / jour · <%= "Bordeaux" %></p>
+            <h5 class="card-title"><%= reservation.item.name %></h5>
+            <p class="card-text">Du <%= reservation.start_date %> au <%= reservation.end_date %></p>
+            <p class="card-text">Prix total : <%= reservation.total_price %> €</p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="items-card card shadow bg-white text-dark mb-4">
-          <%= image_tag "logo.jpg", class: 'card-img-top' %>
-          <div class="card-body">
-            <h5 class="card-title"><%= 'Marteau' %></h5>
-            <p class="card-text"><strong><%= "9.99" %></strong> / jour · <%= "Bordeaux" %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="items-card card shadow bg-white text-dark mb-4">
-          <%= image_tag "logo.jpg", class: 'card-img-top' %>
-          <div class="card-body">
-            <h5 class="card-title"><%= 'Tondeuse' %></h5>
-            <p class="card-text"><strong><%= "9.99" %></strong> / jour · <%= "Bordeaux" %></p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>

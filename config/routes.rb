@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :reservations, only: [:new, :create, :index]
   end
+
 end
