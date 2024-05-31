@@ -17,7 +17,8 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = @item.reservations
+    @items = Item.all
+    @reservations = Reservation.where(status: true)
   end
 
   def show
