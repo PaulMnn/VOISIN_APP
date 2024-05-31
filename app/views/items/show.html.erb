@@ -1,6 +1,7 @@
 <div class="container">
 <div class="element position-relative" style="top: -20px">
-<strong><%= link_to "> Retour en arrière", "/items" %></strong>
+<%= link_to('<i class="fa-solid fa-arrow-left back-arrow"></i>'.html_safe, "/items".html_safe) %>
+
 </div>
 
   <%# Titre de l'item %>
@@ -38,10 +39,10 @@
       <p class="price"><%= number_to_currency(@item.price, unit: "€", format: "%n %u / jour") %></p>
         <% if %>
         <% @item.user == current_user %>
-          <%= link_to "Mettre à jour", edit_item_path, class: "btn btn-reserve book-button" %>
+          <%= link_to "Mettre à jour", edit_item_path, class: "btn btn-reserve valid-button" %>
           <%= link_to "Supprimer", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sur(e)s"} %>
         <% else %>
-          <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve book-button" %>
+          <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve valid-button" %>
         <% end %>
     </div>
   </div>
