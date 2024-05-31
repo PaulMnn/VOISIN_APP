@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .image-container {
@@ -58,4 +59,24 @@
   display: flex;
   flex-direction: column;
   height: auto;
+}
+
+.green-plain-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(15, 211, 15);
+}
+
+.red-plain-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
 }

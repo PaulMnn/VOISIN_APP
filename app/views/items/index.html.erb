@@ -5,19 +5,22 @@
     <% @items.each do |item| %>
       <div class="col-md-3 mb-3">
         <div class="items-card card shadow bg-white text-dark h-100">
-          <div class="image-container">
-            <% if item.picture.key.nil? %>
-              <%= image_tag "logo.jpg", class: 'card-img-top' %>
-            <% else %>
-              <%= cl_image_tag item.picture.key, alt: "Items", class: 'card-img-top' %>
-            <% end %>
-          </div>
-          <div class="card-body mt-2">
-            <% if item.user == current_user %>
-              <h5 class="card-title"><strong>Votre</strong> <%= item.name %></h5>
-            <% else %>
-              <h5 class="card-title"><%= item.name %> <strong>À louer</strong></h5>
-            <% end %>
+        <% if item.user == current_user %>
+          <div class="red-plain-circle"></div>
+        <% else %>
+          <div class="green-plain-circle"></div>
+        <% end %>
+
+            <div class="image-container">
+              <% if item.picture.key.nil? %>
+                <%= image_tag "logo.jpg", class: 'card-img-top' %>
+              <% else %>
+                <%= cl_image_tag item.picture.key, alt: "Items", class: 'card-img-top' %>
+              <% end %>
+            </div>
+
+            <div class="card-body mt-2">
+                <h5 class="card-title"><%= item.name %></h5>
             <h6 class="card-item-cat text-muted"><%= item.category %></h6>
             <%# <p class="card-text"><%= item.description </p> %>
           </div>

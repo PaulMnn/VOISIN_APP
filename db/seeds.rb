@@ -10,6 +10,7 @@ users = [
   { email: "paul@gmail.com", username: "PaulManein", password: "paulpassword" },
   { email: "louis@gmail.com", username: "LouisCarmen", password: "louispassword" },
   { email: "snith@gmail.com", username: "Snith", password: "snithpassword" },
+  { email: "ser@ser.ser", username: "ser", password: "serpassword" },
   { email: "marie@gmail.com", username: "MarieDubois", password: "mariepassword" }
 ]
 
