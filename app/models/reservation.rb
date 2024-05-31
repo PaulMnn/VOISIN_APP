@@ -1,20 +1,23 @@
 class Reservation < ApplicationRecord
-  belongs_to :user
   belongs_to :item
-
-  validates :user_id, presence: true
-  validates :item_id, presence: true
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_date, :end_date, :price, presence: true
   validate :end_date_after_start_date
+
+  def total_days
+    (end_date - start_date).to_i
+  end
+
+  def total_cost
+    price * total_days
+  end
 
   private
 
   def end_date_after_start_date
+    return if end_date.blank? || start_date.blank?
+
     if end_date <= start_date
-      errors.add(:end_date, "must be after the start date")
+      errors.add(:end_date, "doit être après la date de début")
     end
   end
-
-  
 end
