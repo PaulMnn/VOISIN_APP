@@ -2,16 +2,14 @@
 <div class="col-4">
   <h1 class="my-4 text-center">Ajouter votre produit </h1>
     <%= simple_form_for(@item) do |f| %>
-      <div class="mb-3" ><%= f.input :category, collection: ["Jardinage", "Outils", "mobilier", "sports & loisirs", "cuisine", "électro-ménager", "accessoires"], label: "Catégorie" %></div>
+      <div class="mb-3" ><%= f.input :category, collection: ["Jardinage", "Outils", "Mobilier", "Sports & Loisirs", "Cuisine", "Électroménager", "Accessoires"], label: "Catégorie" %></div>
       <div class="mb-3"><%= f.input :name, label: "Nom du produit" %></div>
       <div class="mb-3"><%= f.input :picture, as: :file, label: "Télécharger une image" %></div>
-      <div class="mb-3"><%= f.input :price, label: "Prix" %></div>
+      <div class="mb-3"><%= f.input :price, label: "prix" %></div>
       <div class="mb-3"><%= f.input :address, label: "Adresse" %></div>
       <div class="mb-3"> <%= f.input :description, label: "Description" %></div>
-      <i>* mention obligatoire</i>
-      <div class="text-center"><%= f.button :submit, "Ajouter", class: "btn btn-primary" %></div>
+      <div class="text-center"><%= f.button :submit, "Mettre à jour", class: "btn btn-primary" %></div>
     <% end %>
-
        <div class="text-center mt-3">
     <%= link_to "Retour", items_path, class: "btn btn-secondary"%>
     </div>

@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 100px;
+  border-bottom: 1px solid lightgray;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,7 +14,7 @@
 }
 
 .navbar-lewagon .form-control {
-  width: 300px; 
+  width: 500px;
 }
 
 .navbar-lewagon .mx-auto {

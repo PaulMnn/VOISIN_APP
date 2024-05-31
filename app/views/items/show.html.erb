@@ -1,16 +1,32 @@
 <div class="container">
+<div class="element position-relative" style="top: -20px">
+<strong><%= link_to "> Retour en arrière", "/items" %></strong>
+</div>
 
   <%# Titre de l'item %>
   <h2> <%= @item.name %></h2>
   <p class="adress"><%= @item.address %></p>
 
-  <%# cartes photos de l'item %>
-  <div class="cards">
-    <% 3.times do |i| %>
-      <div class="card-category" style="background-image: url(<%= @item.picture.present? ? @item.picture : 'path/to/placeholder-image.jpg' %>);">
-      </div>
-    <% end %>
+<%# cartes photos de l'item %>
+<div class="cards">
+<%# image 1 from form %>
+    <div class="card-category">
+      <% if @item.picture.attached? %>
+        <%= image_tag url_for(@item.picture), class: 'card-img-top' %>
+      <% else %>
+        <%= image_tag "logo.jpg", class: 'card-img-top' %>
+      <% end %>
+    </div>
+<%# image 2 from unsplash %>
+<div class="card-category">
+<% translated_item = DeepL.translate "#{@item.name}", 'FR', 'EN' %>
+    <%= image_tag "https://source.unsplash.com/random/?#{translated_item}", class: 'card-img-top' %>
   </div>
+<%# image 3 from unsplash %>
+<div class="card-category">
+    <%= image_tag "https://source.unsplash.com/random/?#{translated_item}s", class: 'card-img-top' %>
+  </div>
+</div>
 
   <%# description/category à gauche - price/bouton à droite %>
   <div class="description-price">
@@ -20,8 +36,13 @@
     </div>
     <div class="right-side">
       <p class="price"><%= number_to_currency(@item.price, unit: "€", format: "%n %u / jour") %></p>
-      <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve book-button" %>
+        <% if %>
+        <% @item.user == current_user %>
+          <%= link_to "Mettre à jour", edit_item_path, class: "btn btn-reserve book-button" %>
+          <%= link_to "Supprimer", item_path(@item), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sur(e)s"} %>
+        <% else %>
+          <%= link_to "Réserver", new_item_reservation_path(@item), class: "btn btn-reserve book-button" %>
+        <% end %>
     </div>
   </div>
-
 </div>
