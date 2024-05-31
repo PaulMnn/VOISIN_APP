@@ -19,25 +19,14 @@
   </div>
   <div>
     <strong>Total cost:</strong>
-    $<%= @reservation.total_cost %>
-  </div>
-  <div>
-    <strong>Weekly discount:</strong>
-    $<%= @reservation.weekly_discount %>
-  </div>
-  <div>
-    <strong>Service fee:</strong>
-    $<%= @reservation.service_fee %>
+    $<%= @reservation.total_price %>
   </div>
   <div>
     <strong>Total:</strong>
     $<%= @reservation.final_total %>
   </div>
 
-  <button class="reserve-button">Reserve</button>
-  <p>You won't be charged yet</p>
-</div>
-
+  
 <style>
   .reservation-summary {
     border: 1px solid #ccc;
