@@ -1,17 +1,35 @@
-
-<div class="container mt-5">
-  <h1 class="text-center mb-5">Mes réservations en cours</h1>
+<div class="container">
+  <h1 class="text-center mb-5">Merci pour votre reservation</h1>
   <div class="row">
-    <div class="col-md-12">
-      <% @reservations.each do |reservation| %>
-        <div class="reservation-card card shadow bg-white text-dark mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= reservation.item.name %></h5>
-            <p class="card-text">Du <%= reservation.start_date %> au <%= reservation.end_date %></p>
-            <p class="card-text">Prix total : <%= reservation.total_price %> €</p>
-          </div>
+    <div class="col-md-6">
+      <div class="card">
+            <div class="card-header bg-success text-white text-center">
+                <h2>Confirmation de Commande</h2>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Merci pour votre commande !</h4>
+                <p class="card-text">Votre réservation de matériel a été confirmée avec succès. Voici les détails de votre commande :</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Numéro de Commande:</strong> #123456</li>
+                    <li class="list-group-item"><strong>Date de Réservation:</strong> 31 Mai 2024</li>
+                    <li class="list-group-item"><strong>Nom de l'Utilisateur:</strong> Jean Dupont</li>
+                    <li class="list-group-item"><strong>Matériel Réservé:</strong> Perceuse Électrique</li>
+                    <li class="list-group-item"><strong>Durée de la Réservation:</strong> 3 jours</li>
+                    <li class="list-group-item"><strong>Prix Total:</strong> 30€</li>
+                </ul>
+                <div class="alert alert-info mt-3" role="alert">
+                    Vous recevrez un email de confirmation avec plus de détails sous peu.
+                </div>
+                <a href="#" class="btn btn-primary btn-block mt-3">Retour à l'accueil</a>
+            </div>
         </div>
-      <% end %>
+    </div>
+    <div class="col-md-6">
+      <!-- Contenu de la carte interactive -->
+      <!-- Placeholder pour la carte -->
+      <div id="map-container">
+      <%= image_tag "map.png", class: 'card-img-top' %>
+          </div>
     </div>
   </div>
 </div>
