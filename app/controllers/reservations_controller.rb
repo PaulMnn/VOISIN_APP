@@ -1,15 +1,15 @@
 class ReservationsController < ApplicationController
-  before_action :set_item
+  before_action :set_item, only: [:create, :new]
 
   def new
-    @reservation = @item.reservations.new
+    @reservation = Reservation.new
   end
 
   def create
-    @reservation = @item.reservations.new(reservation_params)
-    @reservation.user = current_user
+    @reservation = Reservation.new(reservation_params)
+
     if @reservation.save
-      redirect_to @item, notice: 'Reservation was successfully created.'
+      redirect_to @reservation, notice: 'Réservation confirmée.'
     else
       render :new
     end
@@ -18,6 +18,10 @@ class ReservationsController < ApplicationController
   def index
     @items = Item.all
     @reservations = Reservation.where(status: true)
+  end
+
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 
   private

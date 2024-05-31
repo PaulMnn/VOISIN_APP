@@ -1,0 +1,59 @@
+<h1>Confirm your reservation</h1>
+
+<div class="reservation-summary">
+  <div>
+    <strong>Start:</strong>
+    <%= @reservation.start_date.strftime("%d/%m/%Y") %>
+  </div>
+  <div>
+    <strong>End:</strong>
+    <%= @reservation.end_date.strftime("%d/%m/%Y") %>
+  </div>
+  <div>
+    <strong>Price per day:</strong>
+    $<%= @reservation.price_per_day %>
+  </div>
+  <div>
+    <strong>Total days:</strong>
+    <%= (@reservation.end_date - @reservation.start_date).to_i %> days
+  </div>
+  <div>
+    <strong>Total cost:</strong>
+    $<%= @reservation.total_cost %>
+  </div>
+  <div>
+    <strong>Weekly discount:</strong>
+    $<%= @reservation.weekly_discount %>
+  </div>
+  <div>
+    <strong>Service fee:</strong>
+    $<%= @reservation.service_fee %>
+  </div>
+  <div>
+    <strong>Total:</strong>
+    $<%= @reservation.final_total %>
+  </div>
+
+  <button class="reserve-button">Reserve</button>
+  <p>You won't be charged yet</p>
+</div>
+
+<style>
+  .reservation-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .reserve-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .reserve-button:hover {
+    background-color: darkred;
+  }
+</style>
