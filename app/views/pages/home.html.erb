@@ -1,58 +1,83 @@
-<div class="container mt-2">
-
-  <h1 class="highlighted-title text-center">Voisin'App</h1>
-  <h2 class="highlighted-title text-center"> partage ton matériel, depuis ton canap' !</h2>
-
-<div class="main-pictures rounded">
-  <div class="row justify-content-around my-3 rounded">
-    <%= image_tag 'accueil1.jpg', alt: 'accueil1', class: 'col-3 rounded' %>
-    <%= image_tag 'accueil2.jpg', alt: 'accueil2', class: 'col-3 rounded' %>
-    <%= image_tag 'accueil3.jpg', alt: 'accueil3', class: 'col-3 rounded' %>
-  </div>
+<div class="container mt-3 mb-3">
+  <h1 class=" text-center mt-3">Location de matériel divers entre voisins</h1>
+</div>
+<div>
+  <h2 class=" text-start mx-5 mb-5">Inspirations</h2>
 </div>
 
-<div class="text-center mb-3" >
-  <%= link_to 'Découvrir', items_path, class: 'btn valid-button mx' %>
-   </div>
+  <div class="main-pictures rounded mx-5">
+    <div class="row justify-content-around my-3 rounded">
+      <div class="col-3 text-center">
+        <%= image_tag 'four_pizza.jpg', alt: 'accueil1', class: ' img-home mb-3' %>
+        <h5>Bedroom 2</h5>
+        <p>2 single beds</p>
+      </div>
+      <div class="col-3 text-center">
+        <%= image_tag 'tronconneuse.jpg', alt: 'accueil2', class: ' img-home mb-3' %>
+        <h5>Bedroom 2</h5>
+        <p>2 single beds</p>
+      </div>
+      <div class="col-3 text-center">
+        <%= image_tag 'pergola.jpg', alt: 'accueil3', class: ' img-home mb-3' %>
+        <h5>Bedroom 2</h5>
+        <p>2 single beds</p>
+      </div>
+      <div class="col-3 text-center">
+        <%= image_tag 'tondeuse.jpg', alt: 'accueil4', class: ' img-home mb-3' %>
+        <h5>Bedroom 2</h5>
+        <p>2 single beds</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center ">
+    <%= link_to 'Découvrir', items_path, class: 'btn btn-danger m-4 mb-5' %>
+  </div>
 
   <div class="row mb-3">
-  <div id="carouselExampleDark" class="carousel carousel-dark slide col-8 mx-auto">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide col-8 mx-auto">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+          <div class="carousel-image">
+            <%= image_tag 'batteur_electrique.jpg', class: 'd-block w-100', alt: 'batteur' %>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Batteur Électrique</h5>
+              <p>Préparez vos recettes facilement avec ce batteur.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="10000">
+          <div class="carousel-image">
+            <%= image_tag 'barbe_papa.jpg', class: 'd-block w-100', alt: 'barbe_papa' %>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Machine à barbe à Papa</h5>
+              <p>Idéale pour les anniversaires</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-image">
+            <%= image_tag 'marteau.jpg', class: 'd-block w-100', alt: 'marteau' %>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Marteau</h5>
+              <p>Un outil indispensable pour tous vos travaux.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <div class="carousel-inner linear-gradient">
-      <div class="carousel-item active linear-gradient" data-bs-interval="10000">
-        <%= image_tag 'barbe_papa.jpg', class: 'd-block w-50 mx-auto', alt: 'barbe_papa' %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Machine à barbe à Papa</h5>
-          <p>Idéale pour les anniversaires</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <%= image_tag 'batteur_electrique.jpg', class: 'd-block w-50 mx-auto', alt: 'batteur' %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Batteur Électrique</h5>
-          <p>Préparez vos recettes facilement avec ce batteur.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= image_tag 'marteau.jpg', class: 'd-block w-50 mx-auto', alt: 'marteau' %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Marteau</h5>
-          <p>Un outil indispensable pour tous vos travaux.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
-</div>
 </div>

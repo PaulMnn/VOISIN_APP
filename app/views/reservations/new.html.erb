@@ -1,12 +1,9 @@
 
 <div class="container mt-0" data-controller='flatpickr' data-flatpickr-price-value="<%= @item.price%>">
   <div class="row">
-    <!-- Colonne de gauche vide -->
     <div class="col-md-2"></div>
-    <!-- Colonne centrale avec tout le contenu -->
     <div class="col-md-8 mt-0 bt-0">
       <h2 class="text-center mt-0">Vous souhaitez réserver cet article :</h2>
-      <!-- Utilisation de la carte Bootstrap pour @item.name -->
       <div class="card shadow-sm pb-0">
         <div class="card-body text-center py-1">
           <h3 class="card-title"><%= @item.name %></h3>
@@ -14,33 +11,32 @@
         </div>
       </div>
       <p class="text-center mt-2 mb-2">Merci de compléter les détails de votre réservation ici ⬇️</p>
-      <!-- Nouvelle div pour encapsuler le formulaire -->
-      <div class="form-container">
+      <div class="form-container text-center">
         <div class="row justify-content-center mt-3">
           <div class="reservation-card card shadow col-12">
             <div class="card-body">
-              <div class="dates d-flex justify-content-between mb-3" data-controller="update-price">
+              <div class="dates d-flex justify-content-center mb-3" data-controller="update-price">
                 <%= simple_form_for [@item, @reservation] do |form| %>
-                    <%= form.input :start_date, as: :string, input_html: { id: 'start-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'startDate' } } %>
+                  <%= form.input :start_date, as: :string, input_html: { id: 'start-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'startDate' } } %>
 
-                    <%= form.input :end_date, as: :string, input_html: { id: 'end-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'endDate' } } %>
+                  <%= form.input :end_date, as: :string, input_html: { id: 'end-date', data: { flatpickr_date_format: "d-m-Y", flatpickr_min_date: Date.today, flatpickr_target: 'endDate' } } %>
 
-                    <div class="form-group" >
-                      <p data-flatpickr-target="days">Nombre de jours total de location: 0</p>
-                      <p data-flatpickr-target="totalPrice">Prix total de votre location: 0 €</p>
-                    </div>
-                    </div>
-                    <%= form.submit "Confirmer votre commande"%>
-                    <%= "Vous ne serez pas directement prélevé(e)"%>
-
+                  <div class="form-group">
+                    <p data-flatpickr-target="days">Nombre de jours total de location: 0</p>
+                    <p data-flatpickr-target="totalPrice">Prix total de votre location: 0 €</p>
+                  </div>
+                </div>
+                <%= link_to item_reservations_path(@item) do %>
+                  <%= form.submit "Confirmer votre commande" %>
                 <% end %>
-              </div>
+                <%= "Vous ne serez pas directement prélevé(e)" %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
+
     </div>
-    <!-- Colonne de droite vide -->
     <div class="col-md-2"></div>
   </div>
 </div>

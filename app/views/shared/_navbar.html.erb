@@ -1,32 +1,35 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
-    <%= link_to items_path, class: "navbar-brand" do %>
-    <div>
-    <i class="fa-solid fa-house home-img mx-5"></i>
+    <%= link_to home_path, class: "navbar-brand" do %>
+    <div class="navbar-brand">
+        <%= image_tag "logo-app.png" %>
     </div>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
       <form class="d-flex mx-auto" role="search" action="<%= items_path %>">
-        <div class="search-container">
+        <div class="search-container ">
           <input class="form-control me-2 rounded-5 opacity-50 search-bar" type="search" name="query" placeholder="votre recherche" aria-label="Search">
           <button class="btn search-bar-button" type="submit no-hover"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
       </form>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item active searchbar">
+        <li class="nav-item active searchbar mt-2">
         <%= link_to "Ajouter un produit", new_item_path, class: "nav-link mx-5" %>
         </li>
         <li class="nav-item">
           <%# <%= link_to "My reservation", reservations_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-      <i class="fa-solid fa-bars avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" } do %>
+            <%= image_tag "small_logo.png", alt: "Menu", class: "avatar" %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <% if current_user == nil %>
               <%= link_to "Connexion", new_user_session_path, class: "dropdown-item" %>
