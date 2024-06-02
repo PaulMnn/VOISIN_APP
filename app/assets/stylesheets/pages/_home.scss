@@ -1,32 +1,65 @@
-
 .img-home {
- border-radius: 10px;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.highlighted-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+.btn-danger {
+  padding: 12px 24px; /* Ajuster le rembourrage pour agrandir le bouton */
+  font-size: 18px; /* Ajuster la taille de la police pour agrandir le bouton */
+  background-color: rgb(250, 12, 12); /* Couleur de fond du bouton principal */
+  color: white; /* Couleur du texte */
+  border: none; /* Supprimer la bordure du bouton */
+  border-radius: 5px; /* Ajouter des coins arrondis */
+  cursor: pointer; /* Curseur de souris pointer */
+  transition: ease;
 }
 
 .discover {
   display: flex;
-  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.carousel-caption h5 {
+.carousel-item .carousel-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item .carousel-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fff;
+}
+
+.carousel-caption h5, .carousel-caption p {
   font-size: 1.5em;
   color: white; /* Couleur du texte */
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
@@ -34,22 +67,12 @@
 
 .carousel-caption p {
   font-size: 1em;
-  color: white; /* Couleur du texte */
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
 }
 
-.btn-danger {
-  padding: 12px 24px; /* Ajuster le rembourrage pour agrandir le bouton */
-  font-size: 18px; /* Ajuster la taille de la police pour agrandir le bouton */
-  background-color: red; /* Couleur de fond du bouton principal */
-  color: white; /* Couleur du texte */
-  border: none; /* Supprimer la bordure du bouton */
-  border-radius: 5px; /* Ajouter des coins arrondis */
-  cursor: pointer; /* Curseur de souris pointer */
+.carousel-inner {
+  border-radius: 20px;
 }
 
-.discover {
-  display: flex;
-  text-align: center; /* Centrer le bouton */
-  margin-bottom: 20px; /* Espacement au-dessous du bouton */
+.col-3.text-center img {
+  border-radius: 10px;
 }

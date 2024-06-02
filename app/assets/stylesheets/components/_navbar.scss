@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #c8d5d6;
-  height: 100px;
+  background: #ffffff;
+  height: 80px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -10,7 +10,10 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  width: 140px;
 }
 
 .navbar-lewagon .form-control {
@@ -37,6 +40,7 @@ width: 100px;
 
 .search-bar {
   padding-right: 40px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
 }
 
 .search-bar-button {
