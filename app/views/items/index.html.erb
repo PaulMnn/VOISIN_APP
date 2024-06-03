@@ -22,13 +22,12 @@
             <div class="card-body mt-2">
                 <h5 class="card-title"><%= item.name %></h5>
             <h6 class="card-item-cat text-muted"><%= item.category %></h6>
-            <%# <p class="card-text"><%= item.description </p> %>
           </div>
           <div class="card-footer">
             <div class= "mb-3">
-            <%= link_to "détails", item_path(item), class: 'btn btn-info text-white detail-button' %>
+              <%= link_to "détails", item_path(item), class: 'btn btn-info text-white detail-button' %>
             </div>
-            <p class="card-text"><strong><%= item.price %> € / jour</strong></p>
+              <p class="card-text"><strong><%= item.price %> € / jour</strong></p>
             <div class="blockquote-footer">
               <p><%= item.address %></p>
             </div>
